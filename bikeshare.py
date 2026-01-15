@@ -55,7 +55,7 @@ def load_data(city, month, day):
     # Convert Start Time to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    # Create new columns
+    # Extract month, day of week, and hour for analysis
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
     df['hour'] = df['Start Time'].dt.hour
@@ -79,6 +79,7 @@ def time_stats(df):
     print("Most common month:", df['month'].mode()[0])
     print("Most common day:", df['day_of_week'].mode()[0])
     print("Most common hour:", df['hour'].mode()[0])
+    print("-------------------------------")  # Added separator for clarity
 
 
 def station_stats(df):
@@ -87,8 +88,9 @@ def station_stats(df):
     print("Most common start station:", df['Start Station'].mode()[0])
     print("Most common end station:", df['End Station'].mode()[0])
 
-    trip = (df['Start Station'] + " → " + df['End Station']).mode()[0]
-    print("Most common trip:", trip)
+    # Renamed variable for clarity
+    most_common_trip = (df['Start Station'] + " → " + df['End Station']).mode()[0]
+    print("Most common trip:", most_common_trip)
 
 
 def trip_duration_stats(df):
