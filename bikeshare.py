@@ -72,7 +72,6 @@ def load_data(city, month, day):
 
     return df
 
-
 def time_stats(df):
     """Display statistics on the most frequent times of travel."""
     print("\n--- Popular Times of Travel ---")
@@ -80,7 +79,6 @@ def time_stats(df):
     print("Most common day:", df['day_of_week'].mode()[0])
     print("Most common hour:", df['hour'].mode()[0])
     print("-------------------------------")  # Added separator for clarity
-
 
 def station_stats(df):
     """Display statistics on the most popular stations and trips."""
